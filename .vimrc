@@ -2,7 +2,6 @@
 " vim:set ft=vim et tw=78 sw=2:
 
 """ Start pathogen plugin
-source pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
