@@ -15,7 +15,13 @@ set nocompatible                " close vi mode
 syntax on                       " auto syntax highlighting
 filetype on                     " enable filetype 
 filetype plugin indent on       " find type in .vim/ftplugin/
-colors desert                   " set syntax color to desert
+if has('gui_running')
+  set background=dark           " Use light background in terminal
+  colors solarized                " set syntax color to desert
+else
+  set background=light          " Use dark background in gui
+  colors desert
+endif
 set autowrite                   " auto write the file content while jumping
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore autocomplete filename list
 set nobackup                    " disable backup file
