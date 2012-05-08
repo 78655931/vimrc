@@ -2,6 +2,7 @@
 " vim:set ft=vim et tw=78 sw=2:
 
 """ Start pathogen plugin
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -113,7 +114,6 @@ let NERDTreeIgnore=['\.pyc', '\~$', '\.git', '\.hg', '\.svn', '\.dsp', '\.opt', 
 " TagBar Settings
 let g:tagbar_width=30
 let g:tagbar_compact=1
-let g:tagbar_expand=1
 let g:tagbar_autoshowtag=1
 if executable('ctags.exe')
   let g:tagbar_ctags_bin='ctags.exe'
