@@ -1,0 +1,4 @@
+vimrc
+=====
+
+greatghoul's vimrc
