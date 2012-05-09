@@ -18,6 +18,7 @@ filetype on                     " enable filetype
 filetype plugin indent on       " find type in .vim/ftplugin/
 if has('gui_running')
   set background=dark           " Use light background in terminal
+  let g:solarized_italic=0      " Disable italic text in solarized
   colors solarized                " set syntax color to desert
 else
   set background=light          " Use dark background in gui
@@ -43,17 +44,17 @@ set textwidth=120               " auto break line at 120 characters
 set tabstop=4                   " A tab means 4 spaces
 
 """ Language & Encoding
-set encoding=utf-8
+set encoding=utf-8                                  
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5
+set fileencodings=ucs-bom,utf-8,gb18030,gbk,gb2312,latin1
 set langmenu=en_US.utf-8
 source $VIMRUNTIME/delmenu.vim  " remove the menu
 source $VIMRUNTIME/menu.vim     " load the menu
 source $VIMRUNTIME/mswin.vim    " enable mswin functions
 language messages en_US.utf-8  
 
-" statusline {
+" statusline 
 set laststatus=2
 set statusline=
 set statusline+=%2*%-3.3n%0*\   " buffer number
