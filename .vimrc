@@ -116,9 +116,17 @@ let NERDTreeIgnore=['\.pyc', '\~$', '\.git', '\.hg', '\.svn', '\.dsp', '\.opt', 
 let g:tagbar_width=30
 let g:tagbar_compact=1
 let g:tagbar_autoshowtag=1
-if executable('ctags.exe')
-  let g:tagbar_ctags_bin='ctags.exe'
-else
-  let g:tagbar_ctags_bin='ctags'
+" Auto find ctags program in runtime path
+let g:tagbar_ctags_bin=pathogen#runtime_findfile('ctags.exe', 1)
+if !executable(g:tagbar_ctags_bin)
+  let g:tagbar_ctags_bin=pathogen#runtime_findfile('ctags', 1)
 endif
 set tags=./tags,../../tags,$HOME/vimtags
+
+" 格式化xml
+function Xml()
+    set filetype=xml
+    :%s/></>\r</g "把><替换成>回车<
+    :normal gg=G<CR>
+endfunction
+map  <leader>xml  :call Xml()<CR>
