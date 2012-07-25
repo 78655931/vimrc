@@ -21,8 +21,8 @@ if has('gui_running')
   let g:solarized_italic=0      " Disable italic text in solarized
   colors solarized                " set syntax color to desert
 else
-  set background=light          " Use dark background in gui
-  colors desert
+  "colors evening
+  colors ron
 endif
 set autowrite                   " auto write the file content while jumping
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore autocomplete filename list
@@ -40,7 +40,8 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 set smarttab                    " enable smart indentation
 set expandtab                   " Insert spaces as tabs
 set shiftwidth=4                " Number of spaces to use for each step of (auto)indent
-set textwidth=120               " auto break line at 120 characters
+"set textwidth=120               " auto break line at 120 characters
+set colorcolumn=120           " Highlight right margin  
 set tabstop=4                   " A tab means 4 spaces
 
 """ Language & Encoding
@@ -82,7 +83,6 @@ nmap <leader>nt :NERDTreeFind<CR>
 nmap <leader>fe :NERDTree<CR>:NERDTreeMirror<CR>
 nmap <leader>e 	:NERDTreeToggle<CR>:NERDTreeMirror<CR>
 nmap <leader>l 	:TagbarToggle<CR>
-map <F5>        :!%<CR>
 
 " Ctrl-\ - Open the definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
@@ -103,10 +103,14 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 " Change Working Directory to that of the current file
 nmap <leader>cd :lcd %:p:h<CR>
 
+au BufEnter,BufNew *.py map <F5> :!python % <CR>
+
 " Syntax *.json file as javascript
 au BufNewFile,BufRead *.json            setf javascript
 " Syntax *.hta file as html
 au BufNewFile,BufRead *.hta             setf html
+" Set sae wsgi file as python syntax
+au BufNewFile,BufRead *.wsgi            set ft=python
 
 """ NERDTree Settings
 let NERDTreeShowBookmarks=1
