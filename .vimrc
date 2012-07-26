@@ -52,7 +52,7 @@ set fileencodings=ucs-bom,utf-8,gb18030,gbk,gb2312,latin1
 set langmenu=en_US.utf-8
 source $VIMRUNTIME/delmenu.vim  " remove the menu
 source $VIMRUNTIME/menu.vim     " load the menu
-source $VIMRUNTIME/mswin.vim    " enable mswin functions
+" source $VIMRUNTIME/mswin.vim    " enable mswin functions
 language messages en_US.utf-8  
 
 " statusline 
