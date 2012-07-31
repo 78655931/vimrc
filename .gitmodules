@@ -18,6 +18,3 @@
 	path = bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
     ignore = dirty
-[submodule "bundle/web-indent"]
-	path = bundle/web-indent
-	url = git@github.com:greatghoul/vim-web-indent.git
