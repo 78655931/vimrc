@@ -125,7 +125,7 @@ let g:tagbar_ctags_bin=pathogen#runtime_findfile('ctags.exe', 1)
 if !executable(g:tagbar_ctags_bin)
   let g:tagbar_ctags_bin=pathogen#runtime_findfile('ctags', 1)
 endif
-set tags=./tags,../../tags,$HOME/vimtags
+"set tags=./tags,../../tags,$HOME/vimtags
 
 " 格式化xml
 function Xml()
