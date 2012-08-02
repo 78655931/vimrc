@@ -21,8 +21,8 @@ if has('gui_running')
   let g:solarized_italic=0      " Disable italic text in solarized
   colors solarized                " set syntax color to desert
 else
-  "colors evening
-  colors ron
+  colors evening
+  "colors ron
 endif
 set autowrite                   " auto write the file content while jumping
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore autocomplete filename list
@@ -93,7 +93,7 @@ map [[ :po<CR>
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 " Open a new tab
-map <C-t> :tabnew<CR>
+"map <C-t> :tabnew<CR>
 " Close current tab
 map <C-x> :tabclose<CR> 
 " Clearing highlighted search
