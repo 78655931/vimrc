@@ -163,16 +163,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.git', '\.hg', '\.svn', '\.dsp', '\.opt', '\.plg', '*.exe', '*.dll']
 
-" TagBar Settings
-let g:tagbar_width=30
-let g:tagbar_compact=1
-let g:tagbar_autoshowtag=1
-" Auto find ctags program in runtime path
-let g:tagbar_ctags_bin=pathogen#runtime_findfile('ctags.exe', 1)
-if !executable(g:tagbar_ctags_bin)
-  let g:tagbar_ctags_bin=pathogen#runtime_findfile('ctags', 1)
-endif
-"set tags=./tags,../../tags,$HOME/vimtags
+
 
 " 格式化xml
 function Xml()
@@ -181,3 +172,31 @@ function Xml()
     :normal gg=G<CR>
 endfunction
 map  <leader>xml  :call Xml()<CR>
+"获取当前路径的上一级的路径
+function! GET_UP_PATH(dir)
+    let pos=len(a:dir)-1
+    while pos>0
+        if (a:dir[pos]=="/" )
+            return  strpart(a:dir,0,pos)
+        endif
+        let pos=pos-1
+    endwhile
+    return  ""
+endfunction
+
+"设置相关tags
+function! s:SET_TAGS()
+    let dir = expand("%:p:h") "获得源文件路径
+    "在路径上递归向上查找tags文件
+    while dir!=""
+        if findfile("tags",dir ) !=""
+            "找到了就加入到tags
+            exec "set tags+=" . dir . "/tags"
+        endif
+        "得到上级路径
+        let dir=GET_UP_PATH(dir)
+    endwhile
+endfunction
+
+autocmd BufEnter * call s:SET_TAGS()
+
