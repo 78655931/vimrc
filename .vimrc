@@ -32,7 +32,7 @@ set wildmenu                    " turn on wild menu, try typing :h and press <Ta
 set wildmode=list:longest,full	" command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]	" backspace and cursor keys wrap to
 set showcmd                     " display incomplete commands
-
+set autochdir
 """ Indentation & Formatting
 set autoindent                  " enable auto indentation
 set copyindent                  " auto indent as the previous line
@@ -43,6 +43,8 @@ set shiftwidth=4                " Number of spaces to use for each step of (auto
 "set textwidth=120               " auto break line at 120 characters
 set colorcolumn=120           " Highlight right margin  
 set tabstop=4                   " A tab means 4 spaces
+filetype plugin indent on
+filetype indent on
 
 """ Language & Encoding
 set encoding=utf-8                                  
