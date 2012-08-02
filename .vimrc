@@ -156,6 +156,9 @@ au BufNewFile,BufRead *.hta             setf html
 " Set sae wsgi file as python syntax
 au BufNewFile,BufRead *.wsgi            set ft=python
 
+
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
 """ NERDTree Settings
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.git', '\.hg', '\.svn', '\.dsp', '\.opt', '\.plg', '*.exe', '*.dll']
