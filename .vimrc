@@ -80,6 +80,36 @@ if has("gui_running")
     "set showtabline=0       " 隐藏Tab栏
 endif
 
+:inoremap ( ()<ESC>i
+
+:inoremap ) <c-r>=ClosePair(')')<CR>
+
+:inoremap { {}<ESC>i
+
+:inoremap } <c-r>=ClosePair('}')<CR>
+
+:inoremap [ []<ESC>i
+
+:inoremap ] <c-r>=ClosePair(']')<CR>
+
+":inoremap < <><ESC>i
+
+":inoremap > <c-r>=ClosePair('>')<CR>
+
+:inoremap " ""<ESC>i
+
+:inoremap ' ''<ESC>i
+
+:inoremap ` ``<ESC>i
+
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+		return "\<Right>"
+	else
+		return a:char
+	endif
+endf
+
 """ Search
 set showmatch                   " show matching brackets
 set hlsearch                    " highlighting searching
